@@ -1,0 +1,10 @@
+#!/bin/sh
+
+BATTERY_LEVEL=/sys/class/power_supply/BAT0/capacity
+
+xhost local:localhost
+
+while true; do
+	xsetroot -name "B`cat $BATTERY_LEVEL` `date '+%F %a %H:%M'`"
+	sleep 60
+done &
